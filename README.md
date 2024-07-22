@@ -37,4 +37,30 @@ Bitrate measures the amount of data processed per second in a video file. Higher
 ### Choosing the Right Format
 Selecting the right video encoding format depends on the use case, considering factors like compatibility, quality, file size, and the intended platform for distribution.
 
-For more details, visit the [Cloudflare Learning Center](https://www.cloudflare.com/learning/video/video-encoding-formats/).
+
+# HTTP Live Streaming (HLS) Overview
+
+### What is HLS?
+HTTP Live Streaming (HLS) is a widely used video streaming protocol developed by Apple. It breaks down video files into smaller HTTP files, enabling both on-demand and live streaming. HLS uses the HTTP protocol, making it easy to implement and compatible with all Internet-connected devices.
+
+### How HLS Works
+- **Server-Side**:
+  - **Encoding**: Reformats video data using H.264 or H.265 encoding.
+  - **Segmenting**: Divides the video into small segments, typically 6 seconds long, and creates an index file. Multiple quality levels are produced for adaptive streaming.
+- **Distribution**: Encoded segments are delivered to client devices via the Internet, often using a CDN for faster, geographically distributed delivery.
+- **Client-Side**: The device uses the index file to assemble and play the video, adjusting quality based on network conditions.
+
+### Adaptive Bitrate Streaming
+HLS supports adaptive bitrate streaming, which adjusts video quality in real-time based on network conditions. This ensures continuous playback without interruptions and maximizes video quality according to available bandwidth.
+
+### Transport Protocol
+HLS uses TCP as its transport protocol, which provides reliable data delivery essential for high-quality streaming, despite being slower than UDP. Adaptive bitrate streaming and improved global Internet connectivity help mitigate TCP's slower data transfer speeds.
+
+### Comparison with Other Protocols
+HLS is similar to protocols like MPEG-DASH and HDS, which also run over HTTP and offer adaptive streaming. While Adobe Flash (RTMP or HDS) was once prevalent, its use has declined in favor of more modern protocols like HLS.
+
+### Cloudflare and HLS
+Cloudflare supports HLS for both on-demand and live streaming through Cloudflare Stream, which integrates video storage, encoding, and a customizable player with Cloudflare's global network, ensuring fast, high-quality streams.
+
+For more detailed information, visit the [Cloudflare Learning Center](https://www.cloudflare.com/en-gb/learning/video/what-is-http-live-streaming/).
+
